@@ -1,0 +1,11 @@
+configuration {
+  /*             background     border */
+  color-window: "argb:dc0b300a, argb:dc3e8914";
+  /* State:      bg             fg       bgalt          hlbg           hlfg */
+  color-normal: "argb:00134611, #cdff91, argb:00333333, argb:00333333, argb:ff9cd358";
+  color-urgent: "argb:00134611, #cdff91, argb:00333333, argb:00333333, argb:ff9cd358";
+  color-active: "argb:00134611, #cdff91, argb:00333333, argb:00333333, argb:ff9cd358";
+
+  show-icons : true;
+  modi : "drun,run";
+}

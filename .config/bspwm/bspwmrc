@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Set background
+~/.fehbg
+
+# Start hotkey daemon
+if ! pgrep --exact "sxhkd" > /dev/null ; then
+  sxhkd &
+fi
+
+# Panel
+if ! pgrep --exact "polybar" > /dev/null; then
+  polybar bspwm > /tmp/polybar.bspwm.log 2>&1 &
+fi
+
+# Input Methods
+fcitx >/dev/null 2>&1
+
+# Desktops
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+# Floating rules
+bspc rule -a Timer state=floating

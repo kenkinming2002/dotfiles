@@ -1,0 +1,177 @@
+# i3 config file (v4)
+
+##### Base #####
+
+# Modifier
+set $mod Mod4
+
+##### Appearance #####
+# Font
+font pango:Awesome 9, Noto Sans Mono 9
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #ffffff #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+gaps outer 10
+gaps inner 10
+
+##### Basic Keybind
+# FOCUSING WINDOW
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+m focus parent
+bindsym $mod+n focus child
+
+# MOVING WINDOW
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# KILLING WINDOW
+bindsym $mod+Shift+q kill
+
+# FULLSCREEN
+bindsym $mod+f fullscreen toggle
+
+# FLOATING
+floating_modifier $mod
+bindsym $mod+Shift+f floating toggle
+
+# CONTAINER LAYOUT
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+o splith
+bindsym $mod+p splitv
+
+# RESIZE WINDOW
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+##### GAPS #####
+for_window [class=".*"] border pixel 0
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: Shift - global
+set $mode_gaps_inner Inner Gaps: Shift - global
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym k gaps inner current plus 5
+        bindsym j gaps inner current minus 5
+        bindsym n gaps inner current set 0
+
+        bindsym Shift+k gaps inner all plus 5
+        bindsym Shift+j gaps inner all minus 5
+        bindsym Shift+n gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym k gaps outer current plus 5
+        bindsym j gaps outer current minus 5
+        bindsym n gaps outer current set 0
+
+        bindsym Shift+k gaps outer all plus 5
+        bindsym Shift+j gaps outer all minus 5
+        bindsym Shift+n gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+##### STARTING APPS #####
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec rofi -show drun
+bindsym $mod+Shift+a exec i3-rename-workspace
+
+##### SCREEN CAPTURE #####
+bindsym --release $mod+Shift+p exec scrot
+bindsym --release $mod+p       exec scrot -s
+
+###### RESTART RELOAD and EXIT i3 #####
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec prompt 'Are you sure you want to exit?' 'i3-msg exit'
+
+##### i3bar #####
+bar {
+  status_command SCRIPT_DIR=/usr/libexec/i3blocks i3blocks
+}
+
+# $i3-workspace
+bindsym $mod+1 workspace number 1 
+bindsym $mod+2 workspace number 2 
+bindsym $mod+3 workspace number 3 
+bindsym $mod+4 workspace number 4 
+bindsym $mod+5 workspace number 5 
+bindsym $mod+6 workspace number 6 
+bindsym $mod+7 workspace number 7 
+bindsym $mod+8 workspace number 8 
+bindsym $mod+9 workspace number 9
+
+bindsym $mod+Shift+1 moveto workspace number 1 
+bindsym $mod+Shift+2 moveto workspace number 2 
+bindsym $mod+Shift+3 moveto workspace number 3 
+bindsym $mod+Shift+4 moveto workspace number 4 
+bindsym $mod+Shift+5 moveto workspace number 5 
+bindsym $mod+Shift+6 moveto workspace number 6 
+bindsym $mod+Shift+7 moveto workspace number 7 
+bindsym $mod+Shift+8 moveto workspace number 8 
+bindsym $mod+Shift+9 moveto workspace number 9
+
+##### settings #####
+focus_follows_mouse no
+
+##### startup #####
+exec --no-startup-id dex -ae i3
+exec --no-startup-id updatebg
+exec --no-startup-id i3-msg 'workspace number 1; exec urxvt'
+
+exec_always --no-startup-id i3-msg 'exec $HOME/.local/bin/check_battery_daemon > /dev/null'
+exec_always --no-startup-id i3-msg 'exec $HOME/.local/bin/i3-workspace-names-daemon > /dev/null'
+
+for_window [class="Timer"] floating enable

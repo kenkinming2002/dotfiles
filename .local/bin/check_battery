@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import subprocess
+import re
+import os
+
+DISPLAY = ":0"
+THRESHOLD = 30
+
+os.environ["DISPLAY"] = DISPLAY
+
+acpi_output = subprocess.getoutput("acpi --battery")
+match = re.search(r": ([a-zA-Z]+), ([0-9]+)%",acpi_output)
+status, charge = match.groups()
+
+if int(charge) < THRESHOLD and status == "Discharging":
+    subprocess.run(["/usr/bin/notify-send", "--expire-time=60000",
+        "--urgency=critical", "BATTERY LOW", "Please plug in the power cable"])

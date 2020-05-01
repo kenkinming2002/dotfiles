@@ -1,0 +1,23 @@
+! Theme
+URxvt.transparent: true
+URxvt.shading: 20
+
+URxvt.background:	black
+URxvt.foreground:	white
+
+! Font
+URxvt.font:	xft:Noto Sans Mono:pixelsize=10, xft:Wuncon Siji
+
+! Extension
+URxvt.perl-ext-common:	font-size
+
+! Input
+URxvt.inputMethod:	ibus
+URxvt.preeditType:	OverTheSpot
+
+! Disable scrollbar
+URxvt.scrollBar:	false
+
+! Scrollback buffer
+URxvt.secondaryScreen:	1
+URxvt.secondaryScroll:	0

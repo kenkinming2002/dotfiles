@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl https://corona-stats.online/ > /home/kenkwok/.cache/corona 2>/dev/null
