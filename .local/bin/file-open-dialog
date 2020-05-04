@@ -1,0 +1,9 @@
+#!/bin/fish
+
+set SEARCH_PATH /tmp /home/$USER
+
+if count $argv > /dev/null
+  xdg-open $argv </dev/null >/dev/null &
+else
+  find $SEARCH_PATH -type f -not -path '*/\.*' 2>/dev/null
+end

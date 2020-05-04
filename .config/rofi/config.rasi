@@ -7,5 +7,5 @@ configuration {
   color-active: "argb:00134611, #cdff91, argb:00333333, argb:00333333, argb:ff9cd358";
 
   show-icons : true;
-  modi : "drun,run";
+  modi : "drun,run,file-open-dialog:file-open-dialog";
 }
