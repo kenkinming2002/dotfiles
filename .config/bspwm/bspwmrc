@@ -3,6 +3,11 @@
 # Set background
 ~/.fehbg
 
+# Compositor
+if ! pgrep --exact "picom" > /dev/null ; then
+  picom &
+fi
+
 # Start hotkey daemon
 if ! pgrep --exact "sxhkd" > /dev/null ; then
   sxhkd &
