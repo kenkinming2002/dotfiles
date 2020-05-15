@@ -1,0 +1,6 @@
+#newsboat
+browser browser
+
+#podboat
+download-path ~/Documents/podcasts/
+player player
