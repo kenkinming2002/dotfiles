@@ -8,6 +8,8 @@ end
 
 set PATH ~/.local/bin $PATH
 
-alias ls='ls -lX --color=auto --group-directories-first'
+alias l='ls -lh --sort=extension'
+alias t='tree'
+
 umask 077
 
