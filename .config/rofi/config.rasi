@@ -7,5 +7,11 @@ configuration {
   color-active: "argb:00134611, #cdff91, argb:00333333, argb:00333333, argb:ff9cd358";
 
   show-icons : true;
-  modi : "drun,run,file-open-dialog:file-open-dialog";
+
+  /** Disabled as file-open-dialog takes too much time when dentry is not in
+   *  kernel cache
+   *  
+   *  modi : "drun,run,file-open-dialog:file-open-dialog";
+   **/
+  modi : "drun,run";
 }
