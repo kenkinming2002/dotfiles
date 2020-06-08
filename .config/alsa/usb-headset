@@ -1,0 +1,2 @@
+defaults.pcm.!card "C320M"
+defaults.ctl.!card "C320M"

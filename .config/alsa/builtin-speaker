@@ -1,0 +1,2 @@
+defaults.pcm.!card "PCH"
+defaults.ctl.!card "PCH"
