@@ -8,7 +8,7 @@ end
 
 set PATH ~/.local/bin $PATH
 
-alias l='ls -lh --sort=extension'
+alias l='command ls -lh --sort=extension --color=always'
 alias t='tree'
 
 umask 077
