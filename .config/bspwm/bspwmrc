@@ -29,8 +29,3 @@ fi
 if ! pgrep --exact "polybar" > /dev/null; then
   polybar bspwm > /tmp/polybar.bspwm.log 2>&1 &
 fi
-
-## Virt-Manager
-if ! pgrep --exact "libvirtd" -u $USER > /dev/null; then
-  libvirtd -d
-fi
