@@ -37,6 +37,9 @@ set background=dark
 "##### fuzzy file finder #####
 nnoremap <leader>o :FZF<cr>
 
+"##### NERDTree #####
+let NERDTreeIgnore = ['\.hpp\.d$', '\.o$', '\.o\.d$','\.so$', '\.so\.d$','\.a$', '\.a\.d$']
+
 "############################### Useful Keymap #################################
 "##### Search and replace words under cursor #####
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
