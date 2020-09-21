@@ -41,6 +41,13 @@ nnoremap <leader>o :FZF<cr>
 let NERDTreeIgnore = ['\.hpp\.d$', '\.o$', '\.o\.d$','\.so$', '\.so\.d$','\.a$', '\.a\.d$']
 
 "############################### Useful Keymap #################################
+
+"##### Clear Highlight Search #####
+noremap <Leader>c :noh<cr>
+
+"##### NERDTree #####
+nnoremap <Leader>n :NERDTree<cr>
+
 "##### Search and replace words under cursor #####
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
@@ -93,6 +100,13 @@ nnoremap <leader>H :call MakeHeading()<CR>
 nnoremap <leader>h :call MakeSubHeading()<CR>
 
 "################################ Preferences ##################################
+"##### Folds #####
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave * silent! mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 "##### Tab #####
 set tabstop=2 softtabstop=2 shiftwidth=2 
 set expandtab
