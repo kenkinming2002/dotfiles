@@ -1,2 +1,2 @@
 call TexNewMathZone("M", "align", 1)
-call TexNewMathZone("M", "split", 1)
+call TexNewMathZone("O", "gather", 1)

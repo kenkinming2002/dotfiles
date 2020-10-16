@@ -6,7 +6,6 @@ endif
 "############################ Initialize vim-plug #############################
 call plug#begin('~/.local/share/nvim/plugged')
 
-
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 
@@ -40,13 +39,6 @@ nnoremap <Leader>n :NERDTree<cr>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 "################################ Preferences ##################################
-"##### Folds #####
-augroup AutoSaveFolds
-  autocmd!
-  autocmd BufWinLeave * silent! mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
-
 "##### Tab #####
 set tabstop=2 softtabstop=2 shiftwidth=2 
 set expandtab
