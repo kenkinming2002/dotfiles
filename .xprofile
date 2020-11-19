@@ -1,9 +1,0 @@
-#!/bin/sh
-
-#fcitx
-export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
