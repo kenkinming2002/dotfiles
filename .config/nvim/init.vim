@@ -39,7 +39,12 @@ nnoremap <Leader>n :NERDTree<cr>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 "################################ Preferences ##################################
-"##### Tab #####
 set tabstop=2 softtabstop=2 shiftwidth=2 
 set expandtab
 set textwidth=80
+
+set nowrap
+
+augroup TrailingWhitespace
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
