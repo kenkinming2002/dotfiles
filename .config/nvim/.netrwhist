@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/kenkwok/Documents/Personal/ComputerEngineering/Programming/OpenGL/opengl-tutorial/.git'
-let g:netrw_dirhist_2='/home/kenkwok/Documents/Personal/ComputerEngineering/Programming/OpenGL/opengl-tutorial/examples/zombie-game/src/System'

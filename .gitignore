@@ -9,6 +9,7 @@
 !.config/fish/*
 !.config/git/*
 !.config/newsboat/*
+!.config/nvim/
 !.config/nvim/*
 !.config/polybar/*
 !.config/python/
