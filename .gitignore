@@ -11,6 +11,7 @@
 !.config/newsboat/*
 !.config/nvim/*
 !.config/polybar/*
+!.config/python/
 !.config/python/*
 !.config/rofi/*
 !.config/sxhkd/*

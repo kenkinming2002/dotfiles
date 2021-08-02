@@ -1,9 +1,8 @@
 import atexit
 import os
 import readline
-import xdg.BaseDirectory
 
-histfile = os.path.join(xdg.BaseDirectory.xdg_cache_home, "python/history")
+histfile = os.path.expanduser("~/.cache/python/history")
 
 try:
     readline.read_history_file(histfile)
