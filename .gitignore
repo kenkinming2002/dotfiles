@@ -6,6 +6,7 @@
 !.config/bspwm/*
 !.config/ccache/*
 !.config/dunst/*
+!.config/fish/
 !.config/fish/*
 !.config/git/*
 !.config/newsboat/*
