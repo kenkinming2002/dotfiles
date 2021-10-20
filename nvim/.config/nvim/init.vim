@@ -39,7 +39,7 @@ nnoremap <Leader>n :NERDTree<cr>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 "################################ Preferences ##################################
-set tabstop=2 softtabstop=2 shiftwidth=2 
+set softtabstop=2 shiftwidth=2
 set expandtab
 set textwidth=80
 
