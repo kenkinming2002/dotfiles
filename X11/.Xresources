@@ -1,6 +1,6 @@
 ! Theme
 URxvt.depth: 32
-URxvt.background:	rgba:0000/0000/0000/aaaa
+URxvt.background:	rgba:0000/0000/0000/dddd
 URxvt.foreground:	white
 
 ! Font
