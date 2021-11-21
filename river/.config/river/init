@@ -33,6 +33,7 @@ riverctl set-repeat 50 300
 # Mod+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal $mod+Shift Return spawn bemenu-run
 riverctl map normal $mod Return spawn foot
+riverctl map normal $mod+Shift S spawn 'grim -g "$(slurp)"'
 
 ################
 # Manage Views #
