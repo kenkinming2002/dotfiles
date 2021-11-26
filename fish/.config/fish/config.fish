@@ -8,6 +8,10 @@ end
 
 set PATH ~/.local/bin $PATH
 
+export XDG_RUNTIME_DIR=/tmp/users/kenkwok
+mkdir -p $XDG_RUNTIME_DIR
+chmod 700 $XDG_RUNTIME_DIR
+
 alias l='command ls -lh --sort=extension --group-directories-first --color=auto'
 alias t='tree'
 
