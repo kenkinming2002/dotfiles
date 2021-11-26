@@ -130,6 +130,7 @@ riverctl map normal $mod F toggle-fullscreen
 
 riverctl spawn waybar
 riverctl spawn dunst
+riverctl spawn fcitx
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
