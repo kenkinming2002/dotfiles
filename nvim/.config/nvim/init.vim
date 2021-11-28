@@ -35,8 +35,16 @@ noremap <Leader>c :noh<cr>
 "##### NERDTree #####
 nnoremap <Leader>n :NERDTree<cr>
 
+"##### FZF #####
+nnoremap <Leader>f :FZF -i<cr>
+
+"##### YCM #####
+nnoremap <Leader>g :YcmCompleter GoTo<cr>
+
 "##### Search and replace words under cursor #####
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+"#################################### fzf ######################################
 
 "################################ Preferences ##################################
 set softtabstop=2 shiftwidth=2
