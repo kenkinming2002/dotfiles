@@ -15,6 +15,8 @@ Plug 'cstrahan/vim-capnp'
 Plug 'tikhomirov/vim-glsl'
 Plug 'matze/vim-meson'
 
+Plug 'vim-latex/vim-latex'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe'
 
