@@ -56,6 +56,7 @@ set textwidth=80
 set nowrap
 
 augroup TrailingWhitespace
+  autocmd!
   autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
