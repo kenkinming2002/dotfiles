@@ -58,3 +58,9 @@ set nowrap
 augroup TrailingWhitespace
   autocmd BufWritePre * %s/\s\+$//e
 augroup END
+
+augroup Folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
