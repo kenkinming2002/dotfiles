@@ -30,6 +30,9 @@ set background=dark
 "##### NERDTree #####
 let NERDTreeIgnore = ['\.hpp\.d$', '\.o$', '\.o\.d$','\.so$', '\.so\.d$','\.a$', '\.a\.d$']
 
+"##### YCMD #####
+let g:ycm_clangd_args = ['--malloc-trim', '-j=2']
+
 "############################### Useful Keymap #################################
 "##### Clear Highlight Search #####
 noremap <Leader>c :noh<cr>
