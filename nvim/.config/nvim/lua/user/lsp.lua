@@ -1,5 +1,10 @@
 -- LSP Configs
-local lsp_servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local lsp_servers = {
+  ['clangd']        = { cmd = {'clangd', '--malloc-trim', '-j=1'}},
+  ['rust_analyzer'] = {},
+  ['pyright']       = {},
+  ['tsserver']      = {}
+}
 
 -- LSP Setup
 local lspconfig    = require('lspconfig')
@@ -35,8 +40,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>l', lsp_prompt, { buffer = bufnr, silent = true})
 end
 
-for _, server in ipairs(lsp_servers) do
-  lspconfig[server].setup { on_attach = on_attach, capabilities = capabilities }
+for server, setup_params in pairs(lsp_servers) do
+  setup_params.on_attach    = on_attach
+  setup_params.capabilities = capabilities
+  lspconfig[server].setup(setup_params)
 end
 
 
