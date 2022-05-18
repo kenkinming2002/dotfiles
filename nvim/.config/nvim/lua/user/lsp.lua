@@ -25,7 +25,9 @@ function lsp_prompt()
   end
 
   vim.ui.select(items, {}, function(choice)
-    callbacks[choice]()
+    if choice then
+      callbacks[choice]()
+    end
   end)
 end
 

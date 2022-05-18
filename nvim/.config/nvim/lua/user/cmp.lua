@@ -2,8 +2,8 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local cmp          = require('cmp')
 local luasnip      = require('luasnip')
 
-vim.keymap.set({'i', 's'}, '<C-J>',  function() if luasnip.expand_or_jumpable() then print("Hello") luasnip.expand_or_jump() end end);
-vim.keymap.set({'i', 's'}, '<CS-J>', function() if luasnip.jumpable(-1)         then print("Hello") luasnip.jump(-1)         end end);
+vim.keymap.set({'i', 's'}, '<C-J>',  function() if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end end);
+vim.keymap.set({'i', 's'}, '<CS-J>', function() if luasnip.jumpable(-1)         then luasnip.jump(-1)         end end);
 
 cmp.setup {
   snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
