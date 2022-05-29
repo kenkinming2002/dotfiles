@@ -1,0 +1,4 @@
+#!/bin/sh
+echo 3G > /sys/fs/cgroup/memory/clangd/memory.limit_in_bytes
+echo 6G > /sys/fs/cgroup/memory/clangd/memory.memsw.limit_in_bytes
+cgexec -g memory:clangd clangd "$@"
