@@ -1,5 +1,8 @@
 compile_commands.json
+
 core
+!core/
+
 .cache/clangd
 .clangd
 build
