@@ -1,5 +1,21 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR __fish_git_prompt_char_cleanstate:\u25cf
+SETUVAR __fish_git_prompt_char_dirtystate:\u25cf
+SETUVAR __fish_git_prompt_char_invalidstate:\u25cf
+SETUVAR __fish_git_prompt_char_stagedstate:\u25cf
+SETUVAR __fish_git_prompt_char_untrackedfiles:\u25cf
+SETUVAR __fish_git_prompt_color_branch:yellow
+SETUVAR __fish_git_prompt_color_cleanstate:green
+SETUVAR __fish_git_prompt_color_dirtystate:red
+SETUVAR __fish_git_prompt_color_invalidstate:magenta
+SETUVAR __fish_git_prompt_color_stagedstate:yellow
+SETUVAR __fish_git_prompt_color_untrackedfiles:red
+SETUVAR __fish_git_prompt_color_upstream:yellow
+SETUVAR __fish_git_prompt_show_informative_status:\x1d
+SETUVAR __fish_git_prompt_showdirtystate:yes
+SETUVAR __fish_git_prompt_showuntrackedfiles:yes
+SETUVAR __fish_git_prompt_showupstream:yes
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:FFC473
 SETUVAR fish_color_cancel:\x2dr
@@ -13,6 +29,7 @@ SETUVAR fish_color_escape:bryellow\x1e\x2d\x2dbold
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
 SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
 SETUVAR fish_color_normal:normal
 SETUVAR fish_color_operator:bryellow
 SETUVAR fish_color_param:FFC000
@@ -23,9 +40,11 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_prompt_pwd_dir_length:0
