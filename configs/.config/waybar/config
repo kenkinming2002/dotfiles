@@ -1,0 +1,14 @@
+{
+  "layer"    : "top",
+  "position" : "top",
+
+  "modules-left"   : [],
+  "modules-center" : [],
+  "modules-right"  : ["tray", "battery", "memory", "cpu", "clock"],
+
+  "tray"  : { "reverse-direction" : true },
+  "battery" : { "format" : "BAT: {capacity}% {icon}" },
+  "memory"  : { "format" : "MEM: {percentage}%" },
+  "cpu"     : { "format" : "CPU: {usage}%" },
+  "clock" : { "format-alt" : "{:%a, %d. %b  %H:%M}" },
+}

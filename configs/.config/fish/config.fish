@@ -12,7 +12,7 @@ export XDG_RUNTIME_DIR=/tmp/users/kenkwok
 mkdir -p $XDG_RUNTIME_DIR
 chmod 700 $XDG_RUNTIME_DIR
 
-alias l='command ls -lh --group-directories-first --color=auto'
+alias l='command ls -lh --group-directories-first --color=auto --ignore=lost+found'
 alias t='tree'
 
 umask 077
