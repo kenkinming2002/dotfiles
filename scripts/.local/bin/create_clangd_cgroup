@@ -1,2 +1,0 @@
-#!/bin/sh
-sudo cgcreate -a kenkwok -t kenkwok -g memory:clangd
