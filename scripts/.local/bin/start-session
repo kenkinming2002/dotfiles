@@ -1,0 +1,2 @@
+#!/bin/sh
+(setsid dbus-run-session start-river &)
