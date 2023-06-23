@@ -1,6 +1,6 @@
 -- LSP Configs
 local lsp_servers = {
-  ['clangd']        = { cmd = {'run_clangd', '--malloc-trim'}},
+  ['clangd']        = {},
   ['rust_analyzer'] = {},
   ['pyright']       = {},
   ['tsserver']      = {}
