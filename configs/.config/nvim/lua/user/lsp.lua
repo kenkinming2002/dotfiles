@@ -11,8 +11,7 @@ local lspconfig    = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Setup LSP Server
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-cmp_nvim_lsp.update_capabilities(capabilities)
+cmp_nvim_lsp.default_capabilities()
 
 function lsp_prompt()
   local callbacks = {
