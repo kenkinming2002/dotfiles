@@ -80,6 +80,10 @@ riverctl map normal $mod+Shift Return spawn 'bemenu-run'
 riverctl map normal $mod       Return spawn 'foot'
 riverctl map normal $mod+Shift S      spawn 'grim -g "$(slurp)"'
 
+riverctl map normal $mod       R spawn 'yinput-interactive-record-begin'
+riverctl map normal $mod+Shift R spawn 'yinput-interactive-record-end'
+riverctl map normal $mod       P spawn 'yinput-interactive-replay'
+
 ###########
 # Startup #
 ###########

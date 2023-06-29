@@ -1,0 +1,4 @@
+#!/bin/sh
+notify-send "yinput: Recording begin"
+yinput record /tmp/events
+notify-send "yinput: Recording end"

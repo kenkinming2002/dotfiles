@@ -1,0 +1,10 @@
+#!/bin/sh
+count=$(bemenu -p "How many times?" < /dev/null)
+[ $? -eq 0 ] || exit 1
+
+for i in $(seq 1 $count)
+do
+  notify-send "yinput: Replay $i begin"
+  yinput replay /tmp/events
+  notify-send "yinput: Replay $i end"
+done
