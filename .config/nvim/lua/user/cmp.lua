@@ -20,7 +20,9 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        luasnip  = "[SNIPPET]"
+        buffer   = "[BUFFER]",
+        path     = "[PATH]",
+        luasnip  = "[SNIPPET]",
       })[entry.source.name]
       return vim_item
     end
@@ -31,6 +33,8 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'path' },
     { name = 'luasnip' },
   },
 }
