@@ -1,0 +1,5 @@
+#!/bin/sh
+ninja -C build/debug   "$@"
+ninja -C build/release "$@"
+ninja -C build/asan    "$@"
+ninja -C build/tsan    "$@"
