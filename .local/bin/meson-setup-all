@@ -1,9 +1,13 @@
 #!/bin/sh
-export CXX=clang++
 export CXXFLAGS=-fno-omit-frame-pointer
 
 rm -rf build
-meson setup build/debug   -Dbuildtype=debug
-meson setup build/release -Dbuildtype=release
-meson setup build/asan    -Dbuildtype=debugoptimized -Db_sanitize=address
-meson setup build/tsan    -Dbuildtype=debugoptimized -Db_sanitize=thread
+
+meson setup build/debug          -Dbuildtype=debug
+meson setup build/debugoptimized -Dbuildtype=debugoptimized
+meson setup build/release        -Dbuildtype=release
+meson setup build/lto            -Dbuildtype=release -Db_lto=true
+
+meson setup build/asan -Dbuildtype=debugoptimized -Db_sanitize=address
+meson setup build/tsan -Dbuildtype=debugoptimized -Db_sanitize=thread
+
