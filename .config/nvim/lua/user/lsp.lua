@@ -13,30 +13,13 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 -- Setup LSP Server
 cmp_nvim_lsp.default_capabilities()
 
-function lsp_prompt()
-  local callbacks = {
-    ['declaration']     = vim.lsp.buf.declaration,
-    ['definition']      = vim.lsp.buf.definition,
-    ['implementation']  = vim.lsp.buf.implementation,
-    ['type definition'] = vim.lsp.buf.type_definition,
-    ['references']      = vim.lsp.buf.references,
-    ['rename']          = vim.lsp.buf.rename
-  }
-
-  local items = {}
-  for key, _ in pairs(callbacks) do
-    table.insert(items, key)
-  end
-
-  vim.ui.select(items, {}, function(choice)
-    if choice then
-      callbacks[choice]()
-    end
-  end)
-end
-
 local on_attach = function(client, bufnr)
-  vim.keymap.set('n', '<leader>l', lsp_prompt, { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>d', vim.lsp.buf.declaration,     { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.definition,      { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation,  { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>r', vim.lsp.buf.references,      { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>m', vim.lsp.buf.rename,          { buffer = bufnr, silent = true})
+  vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover,           { buffer = bufnr, silent = true})
 end
 
 for server, setup_params in pairs(lsp_servers) do

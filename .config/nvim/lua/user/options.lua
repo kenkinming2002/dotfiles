@@ -6,4 +6,3 @@ vim.opt.wrap           = false
 vim.opt.termguicolors  = true
 vim.opt.relativenumber = true
 vim.opt.shell          = '/bin/sh'
-
