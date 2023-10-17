@@ -1,8 +1,8 @@
 #!/bin/fish
 set PATH ~/.local/bin ~/.cargo/bin $PATH
 
+export VISUAL=nvim
 export SSH_AUTH_SOCK=(gpgconf --list-dirs agent-ssh-socket)
-export XDG_RUNTIME_DIR=/tmp/users/kenkwok
 
 mkdir -p $XDG_RUNTIME_DIR
 chmod 700 $XDG_RUNTIME_DIR

@@ -1,6 +1,0 @@
-[user]
-  name = Kwok Kin Ming
-  email = kenkinming2002@gmail.com
-[core]
-  editor = nvim
-  excludesFile = ~/.config/git/ignore
