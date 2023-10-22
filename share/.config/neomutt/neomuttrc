@@ -5,3 +5,8 @@ set sidebar_visible
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cj sidebar-next
 bind index,pager \Ce sidebar-open
+
+set pgp_use_gpg_agent
+set pgp_self_encrypt
+set crypt_auto_encrypt
+set crypt_auto_sign
