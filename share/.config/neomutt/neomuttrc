@@ -1,2 +1,7 @@
 source colors
 source local
+
+set sidebar_visible
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Ce sidebar-open
