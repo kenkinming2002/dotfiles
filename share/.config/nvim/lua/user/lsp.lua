@@ -3,7 +3,8 @@ local lsp_servers = {
   ['clangd']        = {},
   ['rust_analyzer'] = {},
   ['pyright']       = {},
-  ['tsserver']      = {}
+  ['tsserver']      = {},
+  ['hls']           = { filetypes = { 'haskell', 'lhaskell', 'cabal' } },
 }
 
 -- LSP Setup
