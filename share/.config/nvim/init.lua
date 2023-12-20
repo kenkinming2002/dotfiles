@@ -26,15 +26,17 @@ require("lazy").setup({
   'nvim-treesitter/nvim-treesitter',
   'saadparwaiz1/cmp_luasnip',
   'tikhomirov/vim-glsl',
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } }
 })
 
 -- 3: Requires
-local cmp           = require('cmp')
-local cmp_nvim_lsp  = require('cmp_nvim_lsp')
-local lspconfig     = require('lspconfig')
-local luasnip       = require('luasnip')
-local nvim_tree     = require('nvim-tree')
-local nvim_tree_api = require('nvim-tree.api')
+local cmp               = require('cmp')
+local cmp_nvim_lsp      = require('cmp_nvim_lsp')
+local lspconfig         = require('lspconfig')
+local luasnip           = require('luasnip')
+local nvim_tree         = require('nvim-tree')
+local nvim_tree_api     = require('nvim-tree.api')
+local telescope_builtin = require('telescope.builtin')
 
 -- 3: Snippet Engine - luasnip
 vim.keymap.set({'i', 's'}, '<C-J>',  function() if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end end);
@@ -98,7 +100,13 @@ for server, setup_params in pairs(lsp_servers) do
   lspconfig[server].setup(setup_params)
 end
 
--- 6: nvim-tree
+-- 6: telescope
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+
+-- 7: nvim-tree
 nvim_tree.setup {
   on_attach = function(bufnr)
     local function opts(desc)
@@ -159,7 +167,7 @@ nvim_tree.setup {
 }
 vim.keymap.set('n', '<leader>e', nvim_tree_api.tree.toggle, { silent = true })
 
- -- 7: Options
+ -- 8: Options
 vim.opt.softtabstop    = 2
 vim.opt.shiftwidth     = 2
 vim.opt.expandtab      = true
@@ -168,14 +176,14 @@ vim.opt.termguicolors  = true
 vim.opt.relativenumber = true
 vim.opt.shell          = '/bin/sh'
 
- -- 8: Colorscheme
+ -- 9: Colorscheme
 vim.cmd('colorscheme gruvbox')
 
- -- 9: Keymaps
+ -- 10: Keymaps
 vim.keymap.set('n', '<C-P>', '<cmd>cprevious<cr>', { silent = true })
 vim.keymap.set('n', '<C-N>', '<cmd>cnext<cr>',     { silent = true })
 
- -- 10: Useful Stuffs
+ -- 11: Useful Stuffs
 local id = vim.api.nvim_create_augroup('TrailingWhitespaces', {})
 vim.api.nvim_create_autocmd('BufWrite', {
   group = id,
