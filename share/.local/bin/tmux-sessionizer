@@ -3,4 +3,5 @@ start_directory=$(find $HOME -name ".*" -prune -o -type d -print | fzf)
 session_name=$(basename $start_directory)
 
 tmux new-session -ds $session_name -c $start_directory
-tmux switch-client -t $session_name
+tmux attach-session -t $session_name
+tmux switch-client  -t $session_name
