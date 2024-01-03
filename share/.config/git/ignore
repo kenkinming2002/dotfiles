@@ -5,5 +5,8 @@ core
 
 .cache/clangd
 .clangd
-build
+
 imgui.ini
+
+build
+venv
