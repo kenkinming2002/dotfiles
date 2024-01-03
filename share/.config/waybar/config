@@ -4,11 +4,17 @@
 
   "modules-left"   : [],
   "modules-center" : [],
-  "modules-right"  : ["tray", "battery", "memory", "cpu", "clock"],
+  "modules-right"  : ["tray", "battery", "memory", "cpu", "clock", "wireplumber"],
 
   "tray"  : { "reverse-direction" : true },
   "battery" : { "format" : "BAT: {capacity}% {icon}" },
   "memory"  : { "format" : "MEM: {percentage}%" },
   "cpu"     : { "format" : "CPU: {usage}%" },
   "clock" : { "format-alt" : "{:%a, %d. %b  %H:%M}" },
+  "wireplumber": {
+      "format"       : "{volume}%",
+      "format-muted" : "",
+      "max-volume"   : 150,
+      "scroll-step"  : 0.2
+  },
 }
