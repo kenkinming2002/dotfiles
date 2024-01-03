@@ -6,6 +6,8 @@ core
 .cache/clangd
 .clangd
 
+__pycache__
+
 imgui.ini
 
 build
