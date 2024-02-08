@@ -1,5 +1,12 @@
 #!/bin/sh
-start_directory=$(find $HOME -name ".*" -prune -o -type d -print | fzf)
+case $# in
+  0) start_directory=$(find $HOME -name ".*" -prune -o -type d -print | fzf) ;;
+  1) start_directory="$1" ;;
+  *)
+    echo "Usage: $0 [START_DIRECTORY]"
+    exit 1
+    ;;
+esac
 session_name=$(basename $start_directory)
 
 tmux new-session -ds $session_name -c $start_directory
