@@ -4,12 +4,13 @@
 
   "modules-left"   : [],
   "modules-center" : [],
-  "modules-right"  : ["tray", "battery", "memory", "cpu", "clock", "wireplumber"],
+  "modules-right"  : ["tray", "battery", "memory", "cpu", "disk", "clock", "wireplumber"],
 
   "tray"  : { "reverse-direction" : true },
   "battery" : { "format" : "BAT: {capacity}% {icon}" },
   "memory"  : { "format" : "MEM: {percentage}%" },
   "cpu"     : { "format" : "CPU: {usage}%" },
+  "disk": { "interval": 30, "format": "Disk: {free}" },
   "clock" : { "format-alt" : "{:%a, %d. %b  %H:%M}" },
   "wireplumber": {
       "format"       : "{volume}%",
