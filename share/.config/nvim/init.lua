@@ -101,6 +101,14 @@ for server, setup_params in pairs(lsp_servers) do
 end
 
 -- 6: telescope
+require('telescope').setup{
+  -- See https://github.com/nvim-telescope/telescope.nvim/issues/2105
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+    },
+  },
+}
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
