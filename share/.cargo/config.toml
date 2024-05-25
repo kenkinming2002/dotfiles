@@ -1,0 +1,10 @@
+[rust]
+debuginfo-level = 1
+
+[build]
+rustflags = ["-C", "target-cpu=native"]
+
+[proflie.release]
+debug = true
+codegen-units = 1
+lto = true
