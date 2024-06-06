@@ -1,14 +1,31 @@
 #!/bin/sh
+usage() {
+  echo "Usage: $(basename "$0") [START_DIRECTORY]"
+  echo "Create or switch to a tmux session with working directory at START_DIRECTORY."
+  echo "If START_DIRECTORY is not specified, it will be selected via an interactive prompt with fzf."
+  echo "Name of tmux session is set to basename(1) of START_DIRECTORY."
+  echo "You may run into collision if you have two directories with the same name."
+  exit 1
+}
+
 case $# in
   0) start_directory=$(find $HOME -name ".*" -prune -o -type d -print | fzf) ;;
   1) start_directory="$1" ;;
-  *)
-    echo "Usage: $0 [START_DIRECTORY]"
-    exit 1
-    ;;
+  *) usage ;;
 esac
-session_name=$(basename $start_directory)
 
-tmux new-session -ds $session_name -c $start_directory
-tmux attach-session -t $session_name
-tmux switch-client  -t $session_name
+if [ -z "$start_directory" ]; then
+  echo "Error: Empty START_DIRECTORY"
+  exit 1
+fi
+
+if [ ! -d "$start_directory" ]; then
+  echo "Error: $start_directory is not a directory"
+  exit 1
+fi
+
+session_name=$(basename "$start_directory")
+
+tmux new-session -ds "$session_name" -c "$start_directory"
+tmux attach-session -t "$session_name"
+tmux switch-client  -t "$session_name"
