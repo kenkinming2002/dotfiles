@@ -97,4 +97,79 @@ pipewire    &
 sleep 1
 wireplumber &
 
+# In principle we only would be able to write something like:
+# "xdg-desktop-portal-wlr &" and have it:
+#  - Managed by us
+#  - Connect to dbus on its own
+# but the freedesktop people bring along the beautiful concept of dbus
+# activation and the troubles it ensues.
+#
+# For whatever reason, they think that we are incapable of launching whatever
+# services we need, and these service need to be launched in a on-demand basis.
+# This is problematic.
+#
+# In our case, dbus activation will launch xdg-desktop-portal, which will in
+# turn launch xdg-desktop-portal-wlr based on configuration selected using
+# XDG_CURRENT_DESKTOP environmental variable. This means that we have to
+# somehow set the correct XDG_CURRENT_DESKTOP environmental varialbe based to
+# the desktop environment/compositor we are using.
+#
+# Without dbus activation, this is as simple as running "env
+# XDG_CURRENT_DESKTOP=??? xdg-desktop-portal" in your desktop
+# environment/compositor init script or better yet run "xdg-desktop-portal-wlr"
+# directly because you know which desktop portal implementation you will be
+# using anyway. For better user experience, you may use something like xdg
+# autostart which by default automatically launched in major desktop
+# environment.
+#
+# With dbus activation however, we are not responsible for launching the xdg
+# portal. We have to somehow tell the whoever is responsible for doing that
+# what desktop environment/compositor we are using by setting
+# XDG_CURRENT_DESKTOP environmental variable, and we have to so via some
+# complicated dance with systemd and dbus that is entirely unnecesary.
+#
+# Pictorially,
+#
+# Without DBus activation,
+#
+# --------------            ---------------------------------           --------
+# | Compositor |----------->| Desktop Portal Implementation |---------->| DBus |
+# --------------  Launches  ---------------------------------  Runs on  --------
+#        ^                                  |
+#        |                                  |
+#        ------------------------------------
+#                Communicates with
+# (To actually implement desktop portal functionality)
+#
+#
+# With DBus activation,
+#
+#                       Communicates with (To actually implement desktop portal functionality)
+#       ----------------------------------------------------------------------------------------------------------
+#       |                                                                                                        |
+#       v                                                                                                        |
+# --------------                           --------                   ------------------         ---------------------------------
+# | Compositor |-------------------------->| DBus |------------------>| Desktop Portal |---------| Desktop Portal Implementation |
+# --------------  Set XDG_CURRENT_DESKTOP  --------  DBus Activation  ------------------         ---------------------------------
+#       |                                     ^                               ^
+#       |                                     |                               |
+#       -----------------------------------------------------------------------
+#       Configure **/xdg-desktopr-portal/${XDG_CURRENT_DESKTOP}-portals.confg
+#       Configure **/xdg-desktopr-portal/portals/${XDG_CURRENT_DESKTOP}.portal
+#
+# It does not take genius to realize that the bottom picture is a lot more
+# complicated, and I would argue for no good reason at all.
+#
+# Why do have to go through the complicated dance of setting the correct
+# environmental variable *in* DBus and write configuration files while the same
+# thing could literally be done in like one line of shell script? (Or one
+# execve() call in C).
+#
+# Without DBus activation, the lifetime of desktop portal is very well
+# understood. If the compositor exit, because the desktop portal process is a
+# child of the compositor, it can do the job of cleaning it up (at least that
+# is the case in river - the wayland compositor that I am using).
+#
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlr
+
 wait
