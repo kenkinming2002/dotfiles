@@ -84,6 +84,7 @@ local lsp_servers = {
   ['rust_analyzer'] = {},
   ['pyright']       = {},
   ['tsserver']      = {},
+  ['zls']           = {},
   ['hls']           = { filetypes = { 'haskell', 'lhaskell', 'cabal' } },
 }
 
