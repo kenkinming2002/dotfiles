@@ -13,5 +13,6 @@ c.url.auto_search = 'naive'
 c.url.searchengines = {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'yt'     : 'https://www.youtube.com/results?search_query={}',
-    'wb'     : 'https://wiby.me/?q={}'
+    'wb'     : 'https://wiby.me/?q={}',
+    'docsrs' : 'https://docs.rs/{}/latest/',
 }
