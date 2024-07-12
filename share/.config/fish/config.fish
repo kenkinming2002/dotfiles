@@ -1,6 +1,4 @@
 #!/bin/fish
-set PATH ~/.local/bin ~/.cargo/bin ~/.local/share/gem/ruby/3.0.0/bin $PATH
-
 export VISUAL=nvim
 export SSH_AUTH_SOCK=(gpgconf --list-dirs agent-ssh-socket)
 
