@@ -24,6 +24,8 @@ if [ ! -d "$start_directory" ]; then
   exit 1
 fi
 
+start_directory=$(realpath "$start_directory")
+
 tmux new-session -ds "$start_directory" -c "$start_directory"
 tmux attach-session -t "$start_directory"
 tmux switch-client  -t "$start_directory"
