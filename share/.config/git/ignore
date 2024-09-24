@@ -3,7 +3,7 @@ compile_commands.json
 core
 !core/
 
-.cache/clangd
+clangd
 .clangd
 
 __pycache__
