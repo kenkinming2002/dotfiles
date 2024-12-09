@@ -27,5 +27,8 @@ fi
 start_directory=$(realpath "$start_directory")
 
 tmux new-session -ds "$start_directory" -c "$start_directory"
-tmux attach-session -t "$start_directory"
-tmux switch-client  -t "$start_directory"
+if [ -z "$TMUX" ]; then
+  tmux attach-session -t "$start_directory"
+else
+  tmux switch-client  -t "$start_directory"
+fi
