@@ -9,7 +9,7 @@ usage() {
 }
 
 case $# in
-  0) start_directory=$(find $HOME -name ".*" -prune -o -type d -print | fzf) ;;
+  0) start_directory=$(bfind $HOME | fzf) ;;
   1) start_directory="$1" ;;
   *) usage ;;
 esac
