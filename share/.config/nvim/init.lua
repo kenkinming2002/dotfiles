@@ -96,6 +96,7 @@ for server, setup_params in pairs(lsp_servers) do
     vim.keymap.set('n', '<leader>r', vim.lsp.buf.references,      { buffer = bufnr, silent = true})
     vim.keymap.set('n', '<leader>m', vim.lsp.buf.rename,          { buffer = bufnr, silent = true})
     vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover,           { buffer = bufnr, silent = true})
+    vim.keymap.set('n', '<leader>c', vim.lsp.buf.code_action,     { buffer = bufnr, silent = true})
   end
   setup_params.capabilities = capabilities
   lspconfig[server].setup(setup_params)
