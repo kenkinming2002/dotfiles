@@ -172,6 +172,6 @@ wireplumber &
 # child of the compositor, it can do the job of cleaning it up (at least that
 # is the case in river - the wayland compositor that I am using).
 #
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlr
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP=wlr
 
 wait
