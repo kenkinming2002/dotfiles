@@ -26,7 +26,8 @@ require("lazy").setup({
   'nvim-treesitter/nvim-treesitter',
   'saadparwaiz1/cmp_luasnip',
   'tikhomirov/vim-glsl',
-  { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } }
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } },
+  'kenkinming2002/align.nvim'
 })
 
 -- 3: Requires
@@ -37,6 +38,7 @@ local luasnip           = require('luasnip')
 local nvim_tree         = require('nvim-tree')
 local nvim_tree_api     = require('nvim-tree.api')
 local telescope_builtin = require('telescope.builtin')
+local align             = require('align')
 
 -- 3: Snippet Engine - luasnip
 vim.keymap.set({'i', 's'}, '<C-J>',  function() if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end end);
@@ -192,6 +194,7 @@ vim.cmd('colorscheme gruvbox')
  -- 10: Keymaps
 vim.keymap.set('n', '<C-P>', '<cmd>cprevious<cr>', { silent = true })
 vim.keymap.set('n', '<C-N>', '<cmd>cnext<cr>',     { silent = true })
+vim.keymap.set({'n', 'v'}, '<leader>a', ':Align<cr>', { silent = true })
 
  -- 11: Useful Stuffs
 local id = vim.api.nvim_create_augroup('TrailingWhitespaces', {})
@@ -205,3 +208,4 @@ vim.api.nvim_create_autocmd('BufWrite', {
     vim.fn.winrestview(view)
   end
 })
+
