@@ -25,10 +25,11 @@ if [ ! -d "$start_directory" ]; then
 fi
 
 start_directory=$(realpath "$start_directory")
+session_name=$(echo -n "$start_directory" | tr '.' '_')
 
-tmux new-session -ds "$start_directory" -c "$start_directory"
+tmux new-session -ds "$session_name" -c "$start_directory"
 if [ -z "$TMUX" ]; then
-  tmux attach-session -t "$start_directory"
+  tmux attach-session -t "$session_name"
 else
-  tmux switch-client  -t "$start_directory"
+  tmux switch-client  -t "$session_name"
 fi
